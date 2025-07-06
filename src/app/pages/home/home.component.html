@@ -1,0 +1,52 @@
+<div class="relative w-full min-h-screen">
+
+    <div
+        class="relative z-10 flex flex-col items-center justify-center space-y-10 h-full bg-black bg-opacity-50 min-h-screen p-6">
+        <!-- Booking Section -->
+        <div
+            class="bg-white shadow-lg rounded-lg p-8 flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6 max-w-4xl w-full">
+            <input type="date" [(ngModel)]="startDate"
+                class="border border-gray-300 rounded-md px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Check-in" />
+
+            <input type="date" [(ngModel)]="endDate"
+                class="border border-gray-300 rounded-md px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Check-out" />
+
+            <select [(ngModel)]="selectedCategory"
+                class="border border-gray-300 rounded-md px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <option value="" disabled>Select Category</option>
+                <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
+            </select>
+
+            <button (click)="handleBooking()" [disabled]="isLoading" [ngClass]="{
+          'bg-blue-300 cursor-not-allowed': isLoading,
+          'bg-blue-600 hover:bg-blue-700': !isLoading
+        }" class="text-white px-6 py-2 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 transition">
+                {{ isLoading ? 'Booking...' : 'Book Now' }}
+            </button>
+        </div>
+
+        <!-- Welcome Section -->
+        <div class="text-center space-y-4 max-w-3xl">
+            <h1 class="text-4xl md:text-6xl text-white font-bold">
+                Welcome to Aurora Stay
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200">
+                Step into timeless luxury and make your getaway truly memorable.
+            </p>
+        </div>
+
+        <!-- Call-to-Action Buttons -->
+        <div class="flex justify-center space-x-4">
+            <button routerLink="/rooms"
+                class="bg-white text-blue-600 font-semibold px-6 py-3 rounded-md shadow-md hover:bg-gray-100 transition">
+                Explore Rooms
+            </button>
+            <button routerLink="/contact"
+                class="bg-transparent border border-white text-white font-semibold px-6 py-3 rounded-md hover:bg-white hover:text-blue-600 transition">
+                Contact Us
+            </button>
+        </div>
+    </div>
+</div>
