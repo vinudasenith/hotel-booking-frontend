@@ -1,25 +1,50 @@
-<nav class="bg-white shadow-md p-4 flex items-center justify-between">
+<nav class="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-40 py-6 px-4 flex items-center justify-between">
 
-    <div class="text-2xl font-bold text-blue-600 tracking-wide">
-        🏨 HotelEase
+
+
+    <div class="text-2xl font-extrabold text-white tracking-wide uppercase">
+        Aurora Stay Villa
     </div>
 
-    <ul class="flex space-x-6 text-gray-700 font-medium">
+    <ul class="flex space-x-10 font-medium">
         <li>
-            <a routerLink="/" routerLinkActive="text-blue-600"
-                class="hover:text-blue-500 transition-colors duration-200">Home</a>
+            <a routerLink="/" class="text-white hover:scale-110 transition-transform duration-300 inline-block">
+                HOME
+            </a>
         </li>
         <li>
-            <a routerLink="/rooms" routerLinkActive="text-blue-600"
-                class="hover:text-blue-500 transition-colors duration-200">Rooms</a>
+            <a routerLink="/accommodations"
+                class="text-white hover:scale-110 transition-transform duration-300 inline-block">
+                ACCOMMODATIONS
+            </a>
         </li>
         <li>
-            <a routerLink="/bookings" routerLinkActive="text-blue-600"
-                class="hover:text-blue-500 transition-colors duration-200">Bookings</a>
+            <a routerLink="/gallery" class="text-white hover:scale-110 transition-transform duration-300 inline-block">
+                GALLERY
+            </a>
         </li>
         <li>
-            <a routerLink="/login" routerLinkActive="text-blue-600"
-                class="hover:text-blue-500 transition-colors duration-200">Login</a>
+            <a routerLink="/spa" class="text-white hover:scale-110 transition-transform duration-300 inline-block">
+                SPA
+            </a>
+        </li>
+        <li>
+            <a routerLink="/todo" class="text-white hover:scale-110 transition-transform duration-300 inline-block">
+                THINGS TO DO
+            </a>
+        </li>
+        <li>
+            <a routerLink="/facilities"
+                class="text-white hover:scale-110 transition-transform duration-300 inline-block">
+                FACILITIES
+            </a>
+        </li>
+        <li>
+            <a routerLink="/login" class="text-white hover:scale-110 transition-transform duration-300 inline-block">
+                LOGIN
+            </a>
         </li>
     </ul>
+
+
 </nav>
