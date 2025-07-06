@@ -1,9 +1,10 @@
-<ng-container *ngIf="!isLoginPageOrRegisterPage">
+<ng-container
+  *ngIf="!isLoginPageOrRegisterPage && !isAdminPage && !isAdminRoomsPage && !isAdminUsersPage &&!isAdminBookingsPage">
   <app-navbar></app-navbar>
 </ng-container>
 
 <router-outlet></router-outlet>
 
-<ng-container *ngIf="isHomePage">
+<ng-container *ngIf="isHomePage || isGalleryPage || isSpaPage">
   <app-footer></app-footer>
 </ng-container>

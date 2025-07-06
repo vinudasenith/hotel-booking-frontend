@@ -16,7 +16,12 @@ export class AppComponent {
   title = 'hotel-booking-frontend';
   isLoginPageOrRegisterPage: boolean = false;
   isHomePage: boolean = false;
-
+  isAdminPage: boolean = false;
+  isAdminRoomsPage: boolean = false;
+  isAdminUsersPage: boolean = false;
+  isAdminBookingsPage: boolean = false;
+  isGalleryPage: boolean = false;
+  isSpaPage: boolean = false;
 
   constructor(private router: Router) {
     this.router.events.pipe(
@@ -25,8 +30,12 @@ export class AppComponent {
       const path = event.urlAfterRedirects;
       this.isLoginPageOrRegisterPage = path === '/login' || path === '/register';
       this.isHomePage = path === '/home';
-
-
+      this.isAdminPage = path === '/admin';
+      this.isAdminRoomsPage = path === '/admin/rooms';
+      this.isAdminUsersPage = path === '/admin/users';
+      this.isAdminBookingsPage = path === '/admin/bookings';
+      this.isGalleryPage = path === '/gallery';
+      this.isSpaPage = path === '/spa';
     });
   }
 }
