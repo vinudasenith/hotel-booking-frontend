@@ -3,3 +3,7 @@
 </ng-container>
 
 <router-outlet></router-outlet>
+
+<ng-container *ngIf="isHomePage">
+  <app-footer></app-footer>
+</ng-container>
