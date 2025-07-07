@@ -22,6 +22,12 @@ export class AppComponent {
   isAdminBookingsPage: boolean = false;
   isGalleryPage: boolean = false;
   isSpaPage: boolean = false;
+  isAboutPage: boolean = false;
+  isContactPage: boolean = false;
+  isFaqPage: boolean = false;
+  isTermsPage: boolean = false;
+  isThingsToDoPage: boolean = false;
+  isFacilityPage: boolean = false;
 
   constructor(private router: Router) {
     this.router.events.pipe(
@@ -36,6 +42,12 @@ export class AppComponent {
       this.isAdminBookingsPage = path === '/admin/bookings';
       this.isGalleryPage = path === '/gallery';
       this.isSpaPage = path === '/spa';
+      this.isAboutPage = path === '/about';
+      this.isContactPage = path === '/contact';
+      this.isFaqPage = path === '/faqs';
+      this.isTermsPage = path === '/terms';
+      this.isThingsToDoPage = path === '/thingstodo';
+      this.isFacilityPage = path === '/facilities';
     });
   }
 }
