@@ -14,6 +14,14 @@ import { FaqsComponent } from './pages/faqs/faqs.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import { ThingstodoComponent } from './pages/thingstodo/thingstodo.component';
 import { FacilitiesComponent } from './pages/facilities/facilities.component';
+import { RoomsComponent } from './pages/rooms/rooms.component';
+import { AccommodationComponent } from './pages/accommodation/accommodation.component';
+import { EditRoomComponent } from './pages/edit-room/edit-room.component';
+import { BookingComponent } from './pages/booking/booking.component';
+
+
+
+
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -26,12 +34,16 @@ export const routes: Routes = [
     { path: 'admin/bookings', component: AdminBookingsComponent },
     { path: 'gallery', component: GalleryComponent },
     { path: 'spa', component: SpaComponent },
+    { path: 'rooms', component: RoomsComponent },
     { path: 'about', component: AboutUsComponent },
     { path: 'contact', component: ContactUsComponent },
     { path: 'faqs', component: FaqsComponent },
     { path: 'terms', component: TermsComponent },
     { path: 'thingstodo', component: ThingstodoComponent },
     { path: 'facilities', component: FacilitiesComponent },
+    { path: 'accommodation', component: AccommodationComponent },
+    { path: 'admin/rooms/edit/:roomId', component: EditRoomComponent },
+    { path: 'booking', component: BookingComponent }
 
 
 ];
