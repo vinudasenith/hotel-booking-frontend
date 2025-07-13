@@ -1,0 +1,46 @@
+<div class="p-6">
+    <h2 class="text-3xl font-bold text-center mt-24 mb-8">Available Rooms</h2>
+
+    <div *ngIf="rooms.length === 0" class="text-center text-red-600">
+        ❗ No rooms available.
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div *ngFor="let room of rooms" class="bg-white shadow-md rounded-2xl p-4 border border-gray-200 flex flex-col">
+
+            <!-- Room Images -->
+            <div class="flex flex-wrap gap-2 mb-4">
+                <img *ngFor="let imageName of room.imageUrls" [src]="'http://localhost:8080' + imageName"
+                    alt="Room Image" class="w-24 h-24 object-cover rounded-lg border border-gray-300" />
+            </div>
+
+            <!-- Room Details -->
+            <div>
+                <h3 class="text-xl font-semibold mb-2">{{ room.category }}</h3>
+                <p class="text-sm text-gray-600">
+                    <span class="font-medium">Room ID:</span> {{ room.roomId }}
+                </p>
+                <p class="text-sm text-gray-600">
+                    <span class="font-medium">Max Guests:</span> {{ room.maxGuests }}
+                </p>
+                <p class="text-sm text-gray-600">
+                    <span class="font-medium">Price:</span> LKR {{ room.price }}
+                </p>
+                <p class="text-sm">
+                    <span class="font-medium">Status:</span>
+                    <span [ngClass]="room.available ? 'text-green-600' : 'text-red-600'">
+                        {{ room.available ? 'Available' : 'Not Available' }}
+                    </span>
+                </p>
+                <p class="text-sm text-gray-700 mt-2">
+                    <span class="font-medium">Description:</span> {{ room.specialDescription }}
+                </p>
+
+            </div>
+
+            <button class="mt-10 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition">
+                Book Now
+            </button>
+        </div>
+    </div>
+</div>
