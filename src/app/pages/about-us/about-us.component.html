@@ -167,11 +167,11 @@
         <p class="text-amber-100 max-w-2xl mx-auto mb-8">Contact our reservations team to plan your perfect stay or
             explore our special offers.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <button
+            <button [routerLink]="['/rooms']"
                 class="px-8 py-3 bg-white text-black font-medium rounded-full hover:bg-white transition-colors duration-300">
                 Book Your Stay
             </button>
-            <button
+            <button [routerLink]="['/contact']"
                 class="px-8 py-3 border border-white text-white font-medium rounded-full hover:bg-white hover:text-blue-300 transition-colors duration-300">
                 Contact Us
             </button>
