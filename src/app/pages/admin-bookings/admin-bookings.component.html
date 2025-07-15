@@ -1,1 +1,105 @@
-<p>admin-bookings works!</p>
+<div class="p-6">
+    <h2 class="text-3xl font-bold text-center mt-6 mb-8">All Bookings</h2>
+
+
+    <div *ngIf="loading" class="text-center text-gray-600 text-lg mb-6"> Loading Bookings... </div>
+
+    <div *ngIf="!loading && booking.length === 0" class="text-center text-red-600">
+        ❗ No Bookings available.
+    </div>
+
+    <div *ngIf="booking.length>0" class="overflow-x-auto">
+        <table class="min-w-full bg-white border border-gray-200 shadow-md rounded-lg">
+            <thead class="bg-gray-100">
+                <tr>
+                    <th class="px-4 py-2">Booking ID</th>
+                    <th class="px-4 py-2">Room ID</th>
+                    <th class="px-4 py-2">Guest Name</th>
+                    <th class="px-4 py-2">Check-in Date</th>
+                    <th class="px-4 py-2">Check-out Date</th>
+                    <th class="px-4 py-2">Total Cost</th>
+                    <th class="px-4 py-2">Status</th>
+                    <th class="px-4 py-2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let booking of booking" class="border-t">
+                    <td class="py-2 px-4">{{ booking.bookingId }}</td>
+                    <td class="py-2 px-4">Room {{ booking.roomId }}</td>
+                    <td class="py-2 px-4">
+                        {{ booking.guestName }}<br />
+                        <span class="text-xs text-gray-500">{{ booking.guestEmail }}</span><br />
+                        <span class="text-xs text-gray-500">{{ booking.guestPhone }}</span>
+                    </td>
+                    <td class="py-2 px-4">{{ booking.checkInDate }}</td>
+                    <td class="py-2 px-4">{{ booking.checkOutDate }}</td>
+                    <td class="py-2 px-4">LKR {{ booking.totalAmount || 'N/A' }}</td>
+                    <td class="py-2 px-4 font-medium" [ngClass]="{
+                'text-green-600': booking.status === 'confirmed',
+                'text-yellow-500': booking.status === 'pending',
+                'text-red-600': booking.status === 'cancelled'
+              }">
+                        {{ booking.status }}
+                    </td>
+                    <td class="py-2 px-4 space-x-2">
+                        <button (click)="changeStatus(booking.bookingId, 'confirmed')"
+                            class="bg-green-500 text-white px-2 py-1 text-xs rounded hover:bg-green-600">
+                            Confirm
+                        </button>
+                        <button (click)="changeStatus(booking.bookingId, 'cancelled')"
+                            class="bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600">
+                            Cancel
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </table>
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
