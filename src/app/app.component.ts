@@ -28,6 +28,7 @@ export class AppComponent {
   isTermsPage: boolean = false;
   isThingsToDoPage: boolean = false;
   isFacilityPage: boolean = false;
+  isRoomsPage: boolean = false;
 
   constructor(private router: Router) {
     this.router.events.pipe(
@@ -48,6 +49,7 @@ export class AppComponent {
       this.isTermsPage = path === '/terms';
       this.isThingsToDoPage = path === '/thingstodo';
       this.isFacilityPage = path === '/facilities';
+      this.isRoomsPage = path === '/rooms';
     });
   }
 }
