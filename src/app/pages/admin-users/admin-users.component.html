@@ -20,9 +20,12 @@
                     <td class="px-5 py-3">{{ user.email }}</td>
                     <td class="px-5 py-3 capitalize">{{ user.role }}</td>
                     <td class="px-5 py-3">{{ user.phone }}</td>
-                    <td class="px-5 py-3 font-semibold cursor-pointer text-green-600 hover:underline">
+                    <td class="px-5 py-3 font-semibold cursor-pointer hover:underline"
+                        [ngClass]="user.enabled ? 'text-green-600' : 'text-red-600'"
+                        (click)="handleBlockUser(user.email)">
                         {{ user.enabled ? 'ACTIVE' : 'BLOCKED' }}
                     </td>
+
                 </tr>
             </tbody>
         </table>

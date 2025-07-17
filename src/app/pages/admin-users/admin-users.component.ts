@@ -36,6 +36,15 @@ export class AdminUsersComponent implements OnInit {
   }
 
   handleBlockUser(email: string) {
-    console.log('Block/unblock user:', email);
+    this.http.put(`http://localhost:8080/api/users/block/${email}`, null).subscribe({
+      next: () => {
+        console.log(`User status toggled: ${email}`);
+        this.fetchUsers();
+      },
+      error: (err) => {
+        console.error(`Failed to toggle user status for ${email}:`, err);
+      }
+    });
   }
+
 }
