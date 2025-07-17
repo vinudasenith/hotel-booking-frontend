@@ -1,8 +1,12 @@
-<footer class="bg-gray-900 text-gray-100 py-10">
-    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-        <!-- About -->
+<footer class="bg-gray-900 text-gray-100 py-10">
+    <div class="max-w-6xl mx-48 px-0 grid grid-cols-1 md:grid-cols-5 gap-8">
         <div>
+            <div class="mb-4 ">
+                <img src="logo.png" alt="Fortress Haven Resort Logo" class="h-36 w-auto" />
+            </div>
+
             <h4 class="text-xl font-semibold mb-4">About Fortress Haven Resort</h4>
             <p class="text-sm text-gray-400">
                 Experience comfort and luxury at Fortress Haven Resort. Your perfect getaway for peace and elegance.
@@ -10,18 +14,18 @@
         </div>
 
         <!-- Explore -->
-        <div>
+        <div class="px-40">
             <h4 class="text-xl font-semibold mb-4">Explore</h4>
             <ul class="space-y-2 text-sm text-gray-300">
                 <li><a routerLink="/" class="hover:text-white transition">Home</a></li>
-                <li><a routerLink="/accommodations" class="hover:text-white transition">Rooms</a></li>
+                <li><a routerLink="/rooms" class="hover:text-white transition">Rooms</a></li>
                 <li><a routerLink="/gallery" class="hover:text-white transition">Gallery</a></li>
                 <li><a routerLink="/about" class="hover:text-white transition">About Us</a></li>
             </ul>
         </div>
 
         <!-- Support -->
-        <div>
+        <div class="px-40">
             <h4 class="text-xl font-semibold mb-4">Support</h4>
             <ul class="space-y-2 text-sm text-gray-300">
                 <li><a routerLink="/contact" class="hover:text-white transition">Contact Us</a></li>
@@ -30,19 +34,36 @@
             </ul>
         </div>
 
+
         <!-- Follow Us -->
-        <div>
+        <div class="px-40">
             <h4 class="text-xl font-semibold mb-4">Follow Us</h4>
-            <div class="flex space-x-4 text-lg">
-                <a href="#" target="_blank" class="hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" target="_blank" class="hover:text-white"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank" class="hover:text-white"><i class="fab fa-twitter"></i></a>
+            <div class="flex flex-col space-y-2 text-sm text-gray-300">
+                <a href="#" target="_blank" class="flex items-center space-x-2 hover:text-white transition">
+                    <i class="fab fa-facebook-f"></i><span>Facebook</span>
+                </a>
+                <a href="#" target="_blank" class="flex items-center space-x-2 hover:text-white transition">
+                    <i class="fab fa-instagram"></i><span>Instagram</span>
+                </a>
+                <a href="#" target="_blank" class="flex items-center space-x-2 hover:text-white transition">
+                    <i class="fab fa-twitter"></i><span>Twitter</span>
+                </a>
             </div>
         </div>
+
+        <div class="px-40">
+            <h4 class="text-xl font-semibold mb-4">Payment Methods</h4>
+            <div class="flex space-x-4 text-2xl text-gray-300">
+                <i class="fab fa-cc-visa hover:text-white transition"></i>
+                <i class="fab fa-cc-mastercard hover:text-white transition"></i>
+                <i class="fab fa-cc-paypal hover:text-white transition"></i>
+            </div>
+        </div>
+
     </div>
 
     <!-- Footer Bottom -->
     <div class="mt-10 border-t border-gray-700 pt-6 text-center text-sm text-gray-500">
-        &copy; 2025 Oceanview Boulevard. All rights reserved.
+        &copy; 2025 Fortress Haven Resort. All rights reserved. All rights reserved.
     </div>
 </footer>
