@@ -180,14 +180,14 @@
         </section>
 
         <!-- Concierge Section -->
-        <section class="mt-16 bg-black text-white p-8 rounded-lg">
+        <section class="mt-16 bg-blue-600 text-white p-8 rounded-lg">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-2/3 mb-6 md:mb-0">
                     <h2 class="text-2xl font-bold mb-4">Need Personalized Recommendations?</h2>
                     <p class="mb-4">Our concierge team is available 24/7 to help you plan the perfect itinerary during
                         your
                         stay.</p>
-                    <button
+                    <button [routerLink]="['/contact']"
                         class="bg-white text-black px-6 py-3 rounded font-semibold hover:bg-gray-200 transition">Contact
                         Concierge</button>
                 </div>
