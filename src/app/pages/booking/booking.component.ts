@@ -45,7 +45,27 @@ export class BookingComponent implements OnInit {
     }
   }
 
+
   submitBooking() {
+
+    const loggedUser = localStorage.getItem('userRole');
+    if (!loggedUser) {
+      alert('❌ You must be logged in to book a room.');
+      this.router.navigate(['/login']);
+      return;
+    }
+
+
+    if (
+      !this.checkInDate ||
+      !this.checkOutDate ||
+      !this.guestName.trim() ||
+      !this.guestEmail.trim() ||
+      !this.guestPhone.trim()
+    ) {
+      alert('❌ Please fill in all required fields.');
+      return;
+    }
     const booking = {
       roomId: this.roomId,
       checkInDate: this.checkInDate,

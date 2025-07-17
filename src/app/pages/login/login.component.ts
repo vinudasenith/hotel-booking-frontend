@@ -31,6 +31,9 @@ export class LoginComponent {
         this.error = '';
         alert('✅ Login successful!');
 
+        localStorage.setItem('userEmail', response.email);
+        localStorage.setItem('userRole', response.role);
+
         if (response.role === 'admin') {
           this.router.navigate(['/admin']);
         } else {
