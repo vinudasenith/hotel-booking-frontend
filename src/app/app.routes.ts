@@ -18,9 +18,7 @@ import { RoomsComponent } from './pages/rooms/rooms.component';
 import { AccommodationComponent } from './pages/accommodation/accommodation.component';
 import { EditRoomComponent } from './pages/edit-room/edit-room.component';
 import { BookingComponent } from './pages/booking/booking.component';
-
-
-
+import { AdminAuthGuard } from './guards/admin-auth.guard';
 
 
 export const routes: Routes = [
@@ -28,10 +26,6 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'home', component: HomeComponent },
-    { path: 'admin', component: AdminComponent },
-    { path: 'admin/rooms', component: AdminRoomsComponent },
-    { path: 'admin/users', component: AdminUsersComponent },
-    { path: 'admin/bookings', component: AdminBookingsComponent },
     { path: 'gallery', component: GalleryComponent },
     { path: 'spa', component: SpaComponent },
     { path: 'rooms', component: RoomsComponent },
@@ -42,8 +36,14 @@ export const routes: Routes = [
     { path: 'thingstodo', component: ThingstodoComponent },
     { path: 'facilities', component: FacilitiesComponent },
     { path: 'accommodation', component: AccommodationComponent },
-    { path: 'admin/rooms/edit/:roomId', component: EditRoomComponent },
-    { path: 'booking', component: BookingComponent }
+    { path: 'booking', component: BookingComponent },
+
+
+    { path: 'admin', component: AdminComponent, canActivate: [AdminAuthGuard] },
+    { path: 'admin/rooms', component: AdminRoomsComponent, canActivate: [AdminAuthGuard] },
+    { path: 'admin/users', component: AdminUsersComponent, canActivate: [AdminAuthGuard] },
+    { path: 'admin/bookings', component: AdminBookingsComponent, canActivate: [AdminAuthGuard] },
+    { path: 'admin/rooms/edit/:roomId', component: EditRoomComponent, canActivate: [AdminAuthGuard] },
 
 
 ];

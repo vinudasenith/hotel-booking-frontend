@@ -37,6 +37,12 @@ export class AdminRoomsComponent implements OnInit {
 
   async addRoom() {
     const imageUrls: string[] = [];
+    const adminEmail = localStorage.getItem('userEmail');
+
+    if (!adminEmail) {
+      alert('❌ Admin email not found. Please log in again.');
+      return;
+    }
 
     for (let file of this.selectedFiles) {
       const formData = new FormData();
@@ -46,7 +52,7 @@ export class AdminRoomsComponent implements OnInit {
         const res = await this.http.post('http://localhost:8080/api/rooms/upload-image', formData, {
           responseType: 'text',
           headers: {
-            email: 'admin@example.com'
+            email: adminEmail
           }
         }).toPromise();
 
@@ -70,7 +76,7 @@ export class AdminRoomsComponent implements OnInit {
 
     this.http.post('http://localhost:8080/api/rooms', roomData, {
       headers: {
-        email: 'admin@example.com'
+        email: adminEmail
       }
     }).subscribe({
       next: () => {
