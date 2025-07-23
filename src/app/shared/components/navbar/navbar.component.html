@@ -2,14 +2,16 @@
 
     <div class="flex flex-col items-center w-40 h-20 overflow-hidden">
         <a routerLink="/" class="flex flex-col items-center justify-center h-full">
-            <img src="logo.png" alt="Fortress Haven Resort Logo" class="h-20 w-40 object-contain" />
-            <span class="text-sm text-white font-semibold mt-1 tracking-wide text-center">Fortress Haven Resort</span>
+            <img src="logo.png" alt="Fortress Haven Resort Logo"
+                class="h-20  w-full sm:w-full md:w-40 object-contain" />
+            <span class="text-sm  text-white font-semibold mt-1 tracking-wide text-center">Fortress Haven
+                Resort</span>
         </a>
     </div>
 
 
 
-    <ul class="flex space-x-10 font-medium">
+    <ul class="hidden md:flex space-x-10 font-medium">
         <li>
             <a routerLink="/" class="text-white hover:scale-110 transition-transform duration-300 inline-block">
                 HOME
@@ -53,7 +55,7 @@
 
     </ul>
 
-    <div class="relative group ml-4" *ngIf="!authService.isLoggedIn()">
+    <div class="hidden md:flex relative group ml-4" *ngIf="!authService.isLoggedIn()">
         <button
             class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-medium transition-colors duration-200 flex items-center">
             <span>ACCOUNT</span>
@@ -73,12 +75,78 @@
 
     <div class="ml-4" *ngIf="authService.isLoggedIn()">
         <button (click)="logout()"
-            class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md font-medium transition-colors duration-200">
+            class="hidden md:block bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md font-medium transition-colors duration-200">
             Logout
         </button>
     </div>
 
-
-
+    <button (click)="toggleMobileMenu()" class="md:hidden text-white focus:outline-none ">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
 
 </nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="fixed  inset-0 z-40 bg-black bg-opacity-50 transition-opacity duration-300 md:hidden"
+    [class.hidden]="!isMobileMenuOpen" (click)="toggleMobileMenu()">
+</div>
+
+<!-- Mobile Menu Content -->
+<div class="fixed top-0 left-0 w-full h-full  max-w-sm bg-white z-50 transform transition-transform duration-300 md:hidden"
+    [class.translate-x-0]="isMobileMenuOpen" [class.-translate-x-full]="!isMobileMenuOpen">
+
+    <div class="p-4 flex justify-between items-center border-b">
+        <img src="logo.png" alt="Logo" class="h-12 w-auto">
+        <button (click)="toggleMobileMenu()" class="text-gray-600 text-3xl">&times;</button>
+    </div>
+
+    <ul class="flex flex-col space-y-4 p-6">
+        <li>
+            <a routerLink="/" (click)="toggleMobileMenu()"
+                class="block py-2 px-4 text-gray-800 hover:bg-gray-100 rounded-md">HOME</a>
+        </li>
+        <li>
+            <a routerLink="/accommodation" (click)="toggleMobileMenu()"
+                class="block py-2 px-4 text-gray-800 hover:bg-gray-100 rounded-md">ACCOMMODATIONS</a>
+        </li>
+        <li>
+            <a routerLink="/gallery" (click)="toggleMobileMenu()"
+                class="block py-2 px-4 text-gray-800 hover:bg-gray-100 rounded-md">GALLERY</a>
+        </li>
+        <li>
+            <a routerLink="/rooms" (click)="toggleMobileMenu()"
+                class="block py-2 px-4 text-gray-800 hover:bg-gray-100 rounded-md">ROOMS</a>
+        </li>
+        <li>
+            <a routerLink="/spa" (click)="toggleMobileMenu()"
+                class="block py-2 px-4 text-gray-800 hover:bg-gray-100 rounded-md">SPA</a>
+        </li>
+        <li>
+            <a routerLink="/thingstodo" (click)="toggleMobileMenu()"
+                class="block py-2 px-4 text-gray-800 hover:bg-gray-100 rounded-md">THINGS TO DO</a>
+        </li>
+        <li>
+            <a routerLink="/facilities" (click)="toggleMobileMenu()"
+                class="block py-2 px-4 text-gray-800 hover:bg-gray-100 rounded-md">FACILITIES</a>
+        </li>
+    </ul>
+
+    <div class="absolute bottom-0 left-0 right-0 p-6 border-t">
+        <div *ngIf="!authService.isLoggedIn()" class="space-y-4">
+            <a routerLink="/login" (click)="toggleMobileMenu()"
+                class="block w-full text-center bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">
+                Login
+            </a>
+            <a routerLink="/register" (click)="toggleMobileMenu()"
+                class="block w-full text-center border border-blue-600 text-blue-600 py-2 px-4 rounded-md hover:bg-blue-50">
+                Register
+            </a>
+        </div>
+        <button *ngIf="authService.isLoggedIn()" (click)="logout();'toggelMobileMenu()'"
+            class="w-full bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700">
+            Logout
+        </button>
+    </div>
+</div>

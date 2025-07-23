@@ -12,11 +12,21 @@ import { Router } from "@angular/router";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  isMobileMenuOpen = false;
+
   constructor(public authService: AuthService, private router: Router) { }
 
   logout() {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  closeMobileMenu() {
+    this.isMobileMenuOpen = false;
   }
 
 }
