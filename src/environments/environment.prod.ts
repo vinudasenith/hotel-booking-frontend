@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: 'http://localhost:8080/api'
+    apiUrl: 'https://hotel-booking-webapp-a4342eeb6e3e.herokuapp.com/api'
 };
