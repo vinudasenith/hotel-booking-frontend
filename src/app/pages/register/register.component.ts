@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpErrorResponse, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -32,7 +33,7 @@ export class RegisterComponent {
       enabled: true
     };
 
-    this.http.post<any>('http://localhost:8080/api/users/register', registerData).subscribe({
+    this.http.post<any>(`${environment.apiUrl}/users/register`, registerData).subscribe({
       next: (response) => {
         console.log('Registration successful:', response);
         this.error = '';

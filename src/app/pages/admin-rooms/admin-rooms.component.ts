@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-admin-rooms',
@@ -49,7 +50,7 @@ export class AdminRoomsComponent implements OnInit {
       formData.append('file', file);
 
       try {
-        const res = await this.http.post('http://localhost:8080/api/rooms/upload-image', formData, {
+        const res = await this.http.post(`${environment.apiUrl}/rooms/upload-image`, formData, {
           responseType: 'text',
           headers: {
             email: adminEmail
@@ -74,7 +75,7 @@ export class AdminRoomsComponent implements OnInit {
       imageUrls: imageUrls
     };
 
-    this.http.post('http://localhost:8080/api/rooms', roomData, {
+    this.http.post(`${environment.apiUrl}/rooms`, roomData, {
       headers: {
         email: adminEmail
       }
@@ -92,7 +93,7 @@ export class AdminRoomsComponent implements OnInit {
   }
 
   getRooms() {
-    this.http.get<any[]>('http://localhost:8080/api/rooms/all').subscribe({
+    this.http.get<any[]>(`${environment.apiUrl}/rooms/all`).subscribe({
       next: (data) => this.rooms = data,
       error: (err) => {
         console.error('❌ Error fetching rooms:', err);
@@ -107,12 +108,12 @@ export class AdminRoomsComponent implements OnInit {
 
     const headers = {
       headers: {
-        email: 'admin@example.com'
+        email: 'admin.fortresshaven@gmail.com'
       },
       responseType: 'text' as const
     };
 
-    this.http.delete(`http://localhost:8080/api/rooms/${roomId}`, headers)
+    this.http.delete(`${environment.apiUrl}/rooms/${roomId}`, headers)
       .subscribe({
         next: () => {
           alert('✅ Room deleted successfully!');

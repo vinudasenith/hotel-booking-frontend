@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../../environments/environment';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class AdminBookingsComponent implements OnInit {
 
   fetchBookings() {
     this.loading = true;
-    this.http.get<any[]>('http://localhost:8080/api/bookings/all').subscribe({
+    this.http.get<any[]>(`${environment.apiUrl}/bookings/all`).subscribe({
       next: (data) => {
         this.booking = data;
         this.loading = false;
@@ -45,7 +46,7 @@ export class AdminBookingsComponent implements OnInit {
 
     const updatedBooking = { ...selectedBooking, status: newStatus };
 
-    this.http.put(`http://localhost:8080/api/bookings/${bookingId}`, updatedBooking)
+    this.http.put(`${environment.apiUrl}/bookings/${bookingId}`, updatedBooking)
       .subscribe({
         next: () => this.fetchBookings(),
         error: err => alert('❌ Failed to update status')

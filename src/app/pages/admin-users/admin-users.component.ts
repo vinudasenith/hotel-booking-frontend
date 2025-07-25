@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
+import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-admin-users',
   standalone: true,
@@ -23,7 +23,7 @@ export class AdminUsersComponent implements OnInit {
   }
 
   fetchUsers() {
-    this.http.get<any[]>('http://localhost:8080/api/users/all').subscribe({
+    this.http.get<any[]>(`${environment.apiUrl}/users/all`).subscribe({
       next: (data) => {
         this.users = data;
         this.loading = false;
@@ -36,7 +36,7 @@ export class AdminUsersComponent implements OnInit {
   }
 
   handleBlockUser(email: string) {
-    this.http.put(`http://localhost:8080/api/users/block/${email}`, null).subscribe({
+    this.http.put(`${environment.apiUrl}/users/block/${email}`, null).subscribe({
       next: () => {
         console.log(`User status toggled: ${email}`);
         this.fetchUsers();

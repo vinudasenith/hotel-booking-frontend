@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-rooms',
@@ -18,7 +19,7 @@ export class RoomsComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<any[]>('http://localhost:8080/api/rooms/all').subscribe({
+    this.http.get<any[]>(`${environment.apiUrl}/rooms/all`).subscribe({
       next: (data) => {
         this.rooms = data;
         this.loading = false;

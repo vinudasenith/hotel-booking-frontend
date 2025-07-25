@@ -3,6 +3,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-edit-room',
@@ -37,7 +38,7 @@ export class EditRoomComponent implements OnInit {
   }
 
   loadRoomDetails() {
-    this.http.get<any>(`http://localhost:8080/api/rooms/${this.roomId}`).subscribe({
+    this.http.get<any>(`${environment.apiUrl}/rooms/${this.roomId}`).subscribe({
       next: (data) => {
         this.category = data.category;
         this.maxGuests = data.maxGuests;
@@ -66,9 +67,9 @@ export class EditRoomComponent implements OnInit {
       formData.append('file', file);
 
       try {
-        const res = await this.http.post('http://localhost:8080/api/rooms/upload-image', formData, {
+        const res = await this.http.post(`${environment.apiUrl}/rooms/upload-image`, formData, {
           responseType: 'text',
-          headers: { email: 'admin@example.com' }
+          headers: { email: 'admin.fortresshaven@gmail.com' }
         }).toPromise();
         if (res) imageUrls.push(res);
       } catch (err) {
@@ -86,8 +87,8 @@ export class EditRoomComponent implements OnInit {
       imageUrls: imageUrls.length > 0 ? imageUrls : this.previewUrls
     };
 
-    this.http.put(`http://localhost:8080/api/rooms/${this.roomId}`, updatedRoom, {
-      headers: { email: 'admin@example.com' }
+    this.http.put(`${environment.apiUrl}/rooms/${this.roomId}`, updatedRoom, {
+      headers: { email: 'admin.fortresshaven@gmail.com' }
     }).subscribe({
       next: () => {
         alert('✅ Room updated successfully!');

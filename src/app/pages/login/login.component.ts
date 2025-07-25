@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpErrorResponse, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from "../../../environments/environment";
 
 
 @Component({
@@ -25,7 +26,7 @@ export class LoginComponent {
       password: this.password
     };
 
-    this.http.post<any>('http://localhost:8080/api/users/login', loginData).subscribe({
+    this.http.post<any>(`${environment.apiUrl}/users/login`, loginData).subscribe({
       next: (response) => {
         console.log('Login successful:', response);
         this.error = '';

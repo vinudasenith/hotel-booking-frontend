@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-booking',
@@ -77,7 +78,7 @@ export class BookingComponent implements OnInit {
       status: 'pending'
     };
 
-    this.http.post('http://localhost:8080/api/bookings', booking).subscribe({
+    this.http.post(`${environment.apiUrl}/bookings`, booking).subscribe({
       next: () => {
         alert('✅ Booking Successful!');
         this.router.navigate(['/']);
