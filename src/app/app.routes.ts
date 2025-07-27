@@ -19,6 +19,7 @@ import { AccommodationComponent } from './pages/accommodation/accommodation.comp
 import { EditRoomComponent } from './pages/edit-room/edit-room.component';
 import { BookingComponent } from './pages/booking/booking.component';
 import { AdminAuthGuard } from './guards/admin-auth.guard';
+import { ErrorComponent } from './pages/error/error.component';
 
 
 export const routes: Routes = [
@@ -37,6 +38,7 @@ export const routes: Routes = [
     { path: 'facilities', component: FacilitiesComponent },
     { path: 'accommodation', component: AccommodationComponent },
     { path: 'booking', component: BookingComponent },
+    { path: '**', component: ErrorComponent },
 
 
     { path: 'admin', component: AdminComponent, canActivate: [AdminAuthGuard] },
