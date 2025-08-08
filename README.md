@@ -1,59 +1,124 @@
-# HotelBookingFrontend
+# 🏨 Hotel Booking Management Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+![Homepage Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_16914_localhost.jpeg)
 
-## Development server
+## 📌 Overview
+This is the frontend for a full-stack hotel booking management web application. It provides a responsive, user-friendly interface for browsing hotels, viewing galleries, making bookings, and managing user/admin functionalities. Built with **Angular** and styled with **Tailwind CSS**, it integrates with the backend APIs to deliver a seamless experience.
 
-To start a local development server, run:
+## 🛠 Tech Stack
+- **Angular**: Version 17.x
+- **Tailwind CSS**: Version 3.x
+- **TypeScript**: Version 5.x
+- **Node.js**: Version 20.x
+- **npm**: Version 10.x or higher
 
-```bash
-ng serve
+## ✨ Features
+- ** 👤 User Features**:
+  - Browse hotels, rooms, and gallery etc.
+  - User registration and login
+  - Book rooms 
+- ** 🛠 Admin Features**:
+  - View and manage users (block/unblock)
+  - View, confirm, or cancel bookings
+  - Add, update, or delete rooms
+- Responsive design for mobile and desktop
+
+## 📋 Prerequisites
+- Node.js 20.x or higher
+- Angular CLI 17.x or higher
+- A modern web browser (e.g., Chrome, Firefox)
+- Backend server running (see backend README for setup)
+
+## 🚀 Setup Instructions
+1. ** 📥 Clone the Repository**:
+   ```bash
+   git clone https://github.com/vinudasenith/hotel-booking-frontend.git
+   cd hotel-booking-frontend
+   ```
+
+2. ** 📦 Install Dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. ** ⚙ Configure Environment**:
+   - Update the API base URL in `src/environments/environment.ts`:
+     ```typescript
+     export const environment = {
+       production: false,
+       apiUrl: 'http://localhost:8080/api'
+     };
+     ```
+
+4. ** ▶ Run the Application**:
+   Start the Angular development server:
+   ```bash
+   ng serve
+   ```
+   The application will be available at `http://localhost:4200`.
+
+5. ** 📦 Build for Production**:
+   ```bash
+   ng build
+   ```
+## 📂 Project Structure
+```
+hotel-booking-frontend/
+├── src/
+│   ├── app/
+│   │   ├── shared/          # Reusable components (e.g. header, footer )
+│   │   ├── services/        # Services for API calls 
+│   │   ├── pages/           # Page components (e.g., Home, Booking, AdminDashboard)
+│   │   ├── guards/          # middleware for routes 
+│   │   └── app.module.ts    # Main Angular module
+│   ├── assets/              # Static assets (images, icons)
+│   ├── styles/              # Global styles and Tailwind CSS config
+│   └── environments/        # Environment configuration files
+├── public                   # Images
+├── package.json             # npm dependencies
+├── tailwind.config.js       # Tailwind CSS configuration
+|── angular.json             # Angular CLI configuration 
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🎨 Tailwind CSS Configuration
+- Tailwind CSS is configured in `tailwind.config.js`.
 
-## Code scaffolding
+## 🌍 Environment Variables
+- `apiUrl`: Backend API base URL (set in `environment.ts` or `environment.prod.ts`).
+- Ensure the backend server is running and accessible.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🧪 Running Tests
+- Unit tests:
+  ```bash
+  ng test
+  ```
 
-```bash
-ng generate component component-name
-```
+## 📄 License
+[Specify your license, e.g., MIT License]
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📸 Screenshots of webpages
+![register page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_175144_localhost.jpeg)
 
-```bash
-ng generate --help
-```
+![accomodation page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_16933_localhost.jpeg)
 
-## Building
+![gallery page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_16948_localhost.jpeg)
 
-To build the project run:
+![accomodation page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_161011_localhost.jpeg)
 
-```bash
-ng build
-```
+![rooms page](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_16104_localhost.jpeg)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+![admin dashboard Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_174215_localhost.jpeg)
 
-## Running unit tests
+![add room page](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_174242_localhost.jpeg)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+![bookingpage Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_174257_localhost.jpeg)
 
-```bash
-ng test
-```
+![faqs page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_161137_localhost.jpeg)
 
-## Running end-to-end tests
+![login page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_175155_localhost.jpeg)
 
-For end-to-end (e2e) testing, run:
+![contact page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_161128_localhost.jpeg)
 
-```bash
-ng e2e
-```
+![terms page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_161144_localhost.jpeg)
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
