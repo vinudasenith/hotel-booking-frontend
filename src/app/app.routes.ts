@@ -38,7 +38,7 @@ export const routes: Routes = [
     { path: 'facilities', component: FacilitiesComponent },
     { path: 'accommodation', component: AccommodationComponent },
     { path: 'booking', component: BookingComponent },
-    { path: '**', component: ErrorComponent },
+
 
 
     { path: 'admin', component: AdminComponent, canActivate: [AdminAuthGuard] },
@@ -46,6 +46,8 @@ export const routes: Routes = [
     { path: 'admin/users', component: AdminUsersComponent, canActivate: [AdminAuthGuard] },
     { path: 'admin/bookings', component: AdminBookingsComponent, canActivate: [AdminAuthGuard] },
     { path: 'admin/rooms/edit/:roomId', component: EditRoomComponent, canActivate: [AdminAuthGuard] },
+
+    { path: '**', component: ErrorComponent },
 
 
 ];
