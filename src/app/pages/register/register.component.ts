@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpErrorResponse, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
+import { ToastrService } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule, HttpClientModule, ToastrModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
@@ -20,7 +22,7 @@ export class RegisterComponent {
   password: string = '';
   error: string = '';
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
 
   handleRegister() {
     const registerData = {
@@ -37,20 +39,23 @@ export class RegisterComponent {
       next: (response) => {
         console.log('Registration successful:', response);
         this.error = '';
-        alert('✅ Registration successful!');
+        this.toastr.success('Registration successful!');
         this.router.navigate(['/login']);
       },
       error: (error: HttpErrorResponse) => {
         console.error('Registration error:', error);
 
         if (error.status === 400) {
-          this.error = '❌ User already exists';
+          this.toastr.error('User alredy exists');
         } else if (error.status === 409) {
-          this.error = '❌ Conflict: Email already registered';
+          this.toastr.warning('Conflict: Email already registered');
         } else if (error.status === 0) {
-          this.error = '❌ Cannot connect to server. Is backend running?';
+          this.toastr.error('❌ Cannot connect to server. Is backend running?', 'Server Error');
         } else {
-          this.error = `❌ Error: ${error.error || 'Something went wrong. Please try again.'}`;
+          this.toastr.error(
+            `❌ ${error.error || 'Something went wrong. Please try again.'}`,
+            'Error'
+          );
         }
       }
     });

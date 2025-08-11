@@ -4,11 +4,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { environment } from '../../../environments/environment';
+import { ToastrService } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-rooms',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, FormsModule, RouterModule],
+  imports: [CommonModule, HttpClientModule, FormsModule, RouterModule, ToastrModule],
   templateUrl: './admin-rooms.component.html',
   styleUrls: ['./admin-rooms.component.css']
 })
@@ -34,14 +36,14 @@ export class AdminRoomsComponent implements OnInit {
     this.previewUrls = this.selectedFiles.map(file => URL.createObjectURL(file));
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private toastr: ToastrService) { }
 
   async addRoom() {
     const imageUrls: string[] = [];
     const adminEmail = localStorage.getItem('userEmail');
 
     if (!adminEmail) {
-      alert('❌ Admin email not found. Please log in again.');
+      this.toastr.error('❌ Admin email not found', 'Error');
       return;
     }
 
@@ -81,7 +83,7 @@ export class AdminRoomsComponent implements OnInit {
       }
     }).subscribe({
       next: () => {
-        alert('✅ Room added successfully!');
+        this.toastr.success('✅ Room added successfully!');
         this.clearForm();
         this.getRooms();
       },
@@ -116,7 +118,7 @@ export class AdminRoomsComponent implements OnInit {
     this.http.delete(`${environment.apiUrl}/rooms/${roomId}`, headers)
       .subscribe({
         next: () => {
-          alert('✅ Room deleted successfully!');
+          this.toastr.success('✅ Room deleted successfully!');
           this.getRooms();
         },
         error: (err) => {
