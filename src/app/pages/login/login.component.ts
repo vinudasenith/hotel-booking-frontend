@@ -22,6 +22,7 @@ export class LoginComponent {
 
   constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
 
+  // Function to handle user login
   handleLogin() {
     const loginData = {
       email: this.email,

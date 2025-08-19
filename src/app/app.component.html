@@ -1,10 +1,13 @@
+<!--  Show Navbar only if we are NOT on login, register, or admin-related pages -->
 <ng-container
   *ngIf="!isLoginPageOrRegisterPage && !isAdminPage && !isAdminRoomsPage && !isAdminUsersPage &&!isAdminBookingsPage">
   <app-navbar></app-navbar>
 </ng-container>
 
+<!--  Angular router outlet where all page components will be injected -->
 <router-outlet></router-outlet>
 
+<!--  Show Footer only for public-facing pages like home, gallery, spa, about, etc. -->
 <ng-container
   *ngIf="isHomePage || isGalleryPage || isSpaPage || isAboutPage || isContactPage || isFaqPage || isTermsPage || isThingsToDoPage || isFacilityPage || isRoomsPage || isAccomodationPage">
   <app-footer></app-footer>

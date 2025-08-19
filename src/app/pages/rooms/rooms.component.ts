@@ -18,6 +18,7 @@ export class RoomsComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
+  // Fetch all rooms
   ngOnInit(): void {
     this.http.get<any[]>(`${environment.apiUrl}/rooms/all`).subscribe({
       next: (data) => {

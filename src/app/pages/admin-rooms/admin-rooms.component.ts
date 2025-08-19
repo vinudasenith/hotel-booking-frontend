@@ -38,6 +38,7 @@ export class AdminRoomsComponent implements OnInit {
 
   constructor(private http: HttpClient, private toastr: ToastrService) { }
 
+  //add new room
   async addRoom() {
     const imageUrls: string[] = [];
     const adminEmail = localStorage.getItem('userEmail');
@@ -51,6 +52,7 @@ export class AdminRoomsComponent implements OnInit {
       const formData = new FormData();
       formData.append('file', file);
 
+      // Upload image
       try {
         const res = await this.http.post(`${environment.apiUrl}/rooms/upload-image`, formData, {
           responseType: 'text',
@@ -66,6 +68,7 @@ export class AdminRoomsComponent implements OnInit {
         console.error('❌ Image upload failed', err);
       }
     }
+
 
     const roomData = {
       roomId: this.roomId,

@@ -22,6 +22,7 @@ export class AdminUsersComponent implements OnInit {
     this.fetchUsers();
   }
 
+  // Function to fetch all users
   fetchUsers() {
     this.http.get<any[]>(`${environment.apiUrl}/users/all`).subscribe({
       next: (data) => {
@@ -35,6 +36,7 @@ export class AdminUsersComponent implements OnInit {
     });
   }
 
+  // Function to toggle user status
   handleBlockUser(email: string) {
     this.http.put(`${environment.apiUrl}/users/block/${email}`, null).subscribe({
       next: () => {

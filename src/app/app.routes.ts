@@ -1,4 +1,7 @@
+
 import { Routes } from '@angular/router';
+
+//importing all components using in routing
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -18,12 +21,17 @@ import { RoomsComponent } from './pages/rooms/rooms.component';
 import { AccommodationComponent } from './pages/accommodation/accommodation.component';
 import { EditRoomComponent } from './pages/edit-room/edit-room.component';
 import { BookingComponent } from './pages/booking/booking.component';
+
+//auth guard to protect admin routes
 import { AdminAuthGuard } from './guards/admin-auth.guard';
+
 import { ErrorComponent } from './pages/error/error.component';
 
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
+
+    //public routes
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'home', component: HomeComponent },
@@ -40,13 +48,14 @@ export const routes: Routes = [
     { path: 'booking', component: BookingComponent },
 
 
-
+    //protected admin routes
     { path: 'admin', component: AdminComponent, canActivate: [AdminAuthGuard] },
     { path: 'admin/rooms', component: AdminRoomsComponent, canActivate: [AdminAuthGuard] },
     { path: 'admin/users', component: AdminUsersComponent, canActivate: [AdminAuthGuard] },
     { path: 'admin/bookings', component: AdminBookingsComponent, canActivate: [AdminAuthGuard] },
     { path: 'admin/rooms/edit/:roomId', component: EditRoomComponent, canActivate: [AdminAuthGuard] },
 
+    //wildcard route
     { path: '**', component: ErrorComponent },
 
 

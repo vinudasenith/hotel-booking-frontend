@@ -5,11 +5,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { environment } from '../../../environments/environment';
+import { ToastrService } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 
 @Component({
   selector: 'app-booking',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule, HttpClientModule, ToastrModule],
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.css']
 })
@@ -25,7 +27,8 @@ export class BookingComponent implements OnInit {
   totalAmount: number = 0;
   numberOfNights: number = 0;
 
-  constructor(private router: Router, private http: HttpClient, private location: Location) {
+  //constructor
+  constructor(private router: Router, private http: HttpClient, private location: Location, private toastr: ToastrService) {
     const nav = this.router.getCurrentNavigation();
     const state = nav?.extras.state as { room: any };
     if (state?.room) {
@@ -36,6 +39,7 @@ export class BookingComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  //calculate total
   calculateTotal() {
     if (this.checkInDate && this.checkOutDate) {
       const checkIn = new Date(this.checkInDate);
@@ -47,11 +51,12 @@ export class BookingComponent implements OnInit {
   }
 
 
+  //submit booking
   submitBooking() {
 
     const loggedUser = localStorage.getItem('userRole');
     if (!loggedUser) {
-      alert('❌ You must be logged in to book a room.');
+      this.toastr.error(' You must be logged in to book a room.');
       this.router.navigate(['/login']);
       return;
     }
@@ -64,7 +69,7 @@ export class BookingComponent implements OnInit {
       !this.guestEmail.trim() ||
       !this.guestPhone.trim()
     ) {
-      alert('❌ Please fill in all required fields.');
+      this.toastr.error(' Please fill in all required fields.');
       return;
     }
     const booking = {
@@ -78,13 +83,14 @@ export class BookingComponent implements OnInit {
       status: 'pending'
     };
 
+
     this.http.post(`${environment.apiUrl}/bookings`, booking).subscribe({
       next: () => {
-        alert('✅ Booking Successful!');
+        this.toastr.success(' Booking Successful!');
         this.router.navigate(['/']);
       },
       error: () => {
-        alert('❌ Booking Failed.');
+        this.toastr.error(' Booking Failed.');
       }
     });
   }

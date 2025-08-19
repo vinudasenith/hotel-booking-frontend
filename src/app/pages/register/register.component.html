@@ -5,6 +5,7 @@
         <div class="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm"></div>
     </div>
 
+    <!-- Registration Card -->
     <div class="bg-white rounded-2xl shadow-xl overflow-hidden w-full max-w-md z-10 relative">
         <div class="bg-gradient-to-r from-blue-600 to-indigo-700 p-6 text-white">
             <h1 class="text-2xl font-bold mb-2 text-center">Fortress Haven Resort</h1>
@@ -12,6 +13,7 @@
             <p class="text-blue-100 text-sm mt-1 text-center">Join us to book your perfect stay</p>
         </div>
 
+        <!-- Registration Form -->
         <form (ngSubmit)="handleRegister()" class="p-6 space-y-5">
             <div class="grid grid-cols-2 gap-4">
                 <div>
@@ -64,11 +66,13 @@
                 </div>
             </div>
 
+            <!-- Register Button -->
             <button type="submit"
                 class="w-full bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-3 rounded-lg font-medium hover:from-blue-700 hover:to-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all shadow-md">
                 Register
             </button>
 
+            <!-- Sign In Link -->
             <div class="text-center text-sm text-gray-600">
                 Already have an account?
                 <a href="/login" class="text-blue-600 hover:text-blue-800 font-medium">Sign in</a>

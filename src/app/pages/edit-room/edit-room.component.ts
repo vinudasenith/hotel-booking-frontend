@@ -12,6 +12,7 @@ import { environment } from '../../../environments/environment';
   templateUrl: './edit-room.component.html',
   styleUrls: ['./edit-room.component.css']
 })
+
 export class EditRoomComponent implements OnInit {
   roomId: number = 0;
   category: string = '';
@@ -37,6 +38,7 @@ export class EditRoomComponent implements OnInit {
     }
   }
 
+  // load room details
   loadRoomDetails() {
     this.http.get<any>(`${environment.apiUrl}/rooms/${this.roomId}`).subscribe({
       next: (data) => {
@@ -59,6 +61,7 @@ export class EditRoomComponent implements OnInit {
     this.previewUrls = this.selectedFiles.map(file => URL.createObjectURL(file));
   }
 
+  // update room
   async updateRoom() {
     const imageUrls: string[] = [];
 

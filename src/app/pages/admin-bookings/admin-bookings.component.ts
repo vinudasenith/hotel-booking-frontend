@@ -15,12 +15,14 @@ export class AdminBookingsComponent implements OnInit {
   booking: any[] = [];
   loading = true;
 
+  // Dependency injection
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.fetchBookings();
   }
 
+  // Fetch all bookings
   fetchBookings() {
     this.loading = true;
     this.http.get<any[]>(`${environment.apiUrl}/bookings/all`).subscribe({
@@ -35,6 +37,7 @@ export class AdminBookingsComponent implements OnInit {
     });
   }
 
+  // Update booking status
   changeStatus(bookingId: string, newStatus: string) {
     const selectedBooking = this.booking.find(b => b.bookingId === bookingId);
 
@@ -42,7 +45,6 @@ export class AdminBookingsComponent implements OnInit {
       alert('Booking not found');
       return;
     }
-
 
     const updatedBooking = { ...selectedBooking, status: newStatus };
 

@@ -36,6 +36,8 @@ export class AppComponent {
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: any) => {
       const path = event.urlAfterRedirects;
+
+      //boolean flags for conditional rendering
       this.isLoginPageOrRegisterPage = path === '/login' || path === '/register';
       this.isHomePage = path === '/home';
       this.isAdminPage = path === '/admin';
