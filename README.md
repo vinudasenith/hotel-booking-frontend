@@ -1,6 +1,6 @@
 # 🏨 Hotel Booking Management Frontend
 
-![Homepage Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_16914_localhost.jpeg)
+![Homepage Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/home%20page.jpeg)
 
 ## 📌 Overview
 This is the frontend for a full-stack hotel booking management web application. It provides a responsive, user-friendly interface for browsing hotels, viewing galleries, making bookings, and managing user/admin functionalities. Built with **Angular** and styled with **Tailwind CSS**, it integrates with the backend APIs to deliver a seamless experience.
@@ -97,28 +97,38 @@ hotel-booking-frontend/
 [Specify your license, e.g., MIT License]
 
 ## 📸 Screenshots of webpages
-![register page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_175144_localhost.jpeg)
+![register page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/user%20registration.jpeg)
 
-![accomodation page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_16933_localhost.jpeg)
+![login page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/user%20login.jpeg)
 
-![gallery page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_16948_localhost.jpeg)
+![admin dashboard Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/admin%20dashboard.jpeg)
 
-![accomodation page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_161011_localhost.jpeg)
+![add room page](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/admin%20add%20room.jpeg)
 
-![rooms page](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_16104_localhost.jpeg)
+![add user managment](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/admin%20user%20managment.jpeg)
 
-![admin dashboard Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_174215_localhost.jpeg)
+![add booking managment](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/admin%20booking%20managment.jpeg)
 
-![add room page](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_174242_localhost.jpeg)
+![accomodation page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/accomadation.jpeg)
 
-![bookingpage Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_174257_localhost.jpeg)
+![gallery page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/gallery.jpeg)
 
-![faqs page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_161137_localhost.jpeg)
+![rooms page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/hotel%20rooms.jpeg)
 
-![login page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_175155_localhost.jpeg)
+![cart page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/cart%20page.jpeg)
 
-![contact page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_161128_localhost.jpeg)
+![spa page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/spa.jpeg)
 
-![terms page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/screenshots/Screenshot_8-8-2025_161144_localhost.jpeg)
+![things to do page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/things%20to%20do.jpeg)
+
+![facilities Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/facilities.jpeg)
+
+![faqs page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/faqs.jpeg)
+
+![contact page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/contact%20us.jpeg)
+
+![terms page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/terms%20condition.jpeg)
+
+![about us Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/about%20us.jpeg)
 
 
