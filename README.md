@@ -99,36 +99,18 @@ hotel-booking-frontend/
 ## 📸 Screenshots of webpages
 ![register page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/user%20registration.jpeg)
 
-![login page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/user%20login.jpeg)
-
-![admin dashboard Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/admin%20dashboard.jpeg)
-
 ![add room page](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/admin%20add%20room.jpeg)
 
 ![add user managment](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/admin%20user%20managment.jpeg)
 
 ![add booking managment](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/admin%20booking%20managment.jpeg)
 
-![accomodation page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/accomadation.jpeg)
-
-![gallery page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/gallery.jpeg)
-
 ![rooms page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/hotel%20rooms.jpeg)
 
 ![cart page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/cart%20page.jpeg)
 
-![spa page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/spa.jpeg)
-
 ![things to do page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/things%20to%20do.jpeg)
 
-![facilities Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/facilities.jpeg)
 
-![faqs page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/faqs.jpeg)
-
-![contact page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/contact%20us.jpeg)
-
-![terms page Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/terms%20condition.jpeg)
-
-![about us Screenshot](https://github.com/vinudasenith/hotel-booking-frontend/blob/master/webapp-shots/about%20us.jpeg)
 
 
