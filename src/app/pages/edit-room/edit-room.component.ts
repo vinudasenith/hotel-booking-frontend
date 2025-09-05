@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { environment } from '../../../environments/environment';
+import { ToastrService } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-room',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, FormsModule, RouterModule],
+  imports: [CommonModule, HttpClientModule, FormsModule, RouterModule, ToastrModule],
   templateUrl: './edit-room.component.html',
   styleUrls: ['./edit-room.component.css']
 })
@@ -24,11 +26,9 @@ export class EditRoomComponent implements OnInit {
   selectedFiles: File[] = [];
   message: string = '';
 
-  constructor(
-    private route: ActivatedRoute,
-    private http: HttpClient,
-    private router: Router
-  ) { }
+
+  //constructor
+  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('roomId');
@@ -72,13 +72,16 @@ export class EditRoomComponent implements OnInit {
       try {
         const res = await this.http.post(`${environment.apiUrl}/rooms/upload-image`, formData, {
           responseType: 'text',
-          headers: { email: 'admin.fortresshaven@gmail.com' }
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          }
         }).toPromise();
         if (res) imageUrls.push(res);
       } catch (err) {
         console.error('❌ Image upload failed', err);
       }
     }
+
 
     const updatedRoom = {
       roomId: this.roomId,
@@ -94,7 +97,7 @@ export class EditRoomComponent implements OnInit {
       headers: { email: 'admin.fortresshaven@gmail.com' }
     }).subscribe({
       next: () => {
-        alert('✅ Room updated successfully!');
+        this.toastr.success(' Room updated successfully!');
         this.router.navigate(['/admin/rooms']);
       },
       error: (err) => {

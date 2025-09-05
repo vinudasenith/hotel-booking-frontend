@@ -35,16 +35,20 @@ export class LoginComponent {
         this.error = '';
         this.toastr.success('Login successful!');
 
-        localStorage.setItem('userEmail', response.email);
-        localStorage.setItem('userRole', response.role);
+        // Store user data in local storage
+        localStorage.setItem('userEmail', response.user.email);
+        localStorage.setItem('userRole', response.user.role);
 
-        if (response.role == 'admin') {
+        // Redirect user to appropriate page
+        if (response.user.role == 'admin') {
           this.router.navigate(['/admin']);
         } else {
           this.router.navigate(['/home']);
         }
 
       },
+
+      // Handle login error
       error: (error: HttpErrorResponse) => {
         if (error.status === 401) {
           this.error = '❌ Invalid email or password';

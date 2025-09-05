@@ -12,6 +12,8 @@ import { filter } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+//Main app component
 export class AppComponent {
   title = 'hotel-booking-frontend';
   isLoginPageOrRegisterPage: boolean = false;

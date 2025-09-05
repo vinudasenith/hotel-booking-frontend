@@ -38,7 +38,6 @@ export class RegisterComponent {
     };
 
     // Send the registration data to the backend
-
     this.http.post<any>(`${environment.apiUrl}/users/register`, registerData).subscribe({
       next: (response) => {
         console.log('Registration successful:', response);
@@ -49,8 +48,8 @@ export class RegisterComponent {
       error: (error: HttpErrorResponse) => {
         console.error('Registration error:', error);
 
-        // Display appropriate error message
 
+        // Display appropriate error message
         if (error.status === 400) {
           this.toastr.error('User alredy exists');
         } else if (error.status === 409) {

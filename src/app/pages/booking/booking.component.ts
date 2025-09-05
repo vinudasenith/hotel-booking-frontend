@@ -16,6 +16,7 @@ import { ToastrModule } from 'ngx-toastr';
   styleUrls: ['./booking.component.css']
 })
 export class BookingComponent implements OnInit {
+
   roomId: number = 0;
   price: number = 0;
   checkInDate: string = '';
@@ -87,7 +88,7 @@ export class BookingComponent implements OnInit {
     this.http.post(`${environment.apiUrl}/bookings`, booking).subscribe({
       next: () => {
         this.toastr.success(' Booking Successful!');
-        this.router.navigate(['/']);
+        this.router.navigate(['/rooms']);
       },
       error: () => {
         this.toastr.error(' Booking Failed.');

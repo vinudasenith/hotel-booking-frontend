@@ -10,41 +10,51 @@
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div *ngFor="let room of rooms" class="bg-white shadow-md rounded-2xl p-4 border border-gray-200 flex flex-col">
+        <div *ngFor="let room of rooms"
+            class="bg-white shadow-md rounded-xl p-4 border border-gray-200 flex flex-col transition-all duration-200 hover:shadow-lg">
 
             <!-- Room Images -->
             <div class="flex flex-wrap gap-2 mb-4">
                 <img *ngFor="let imageName of room.imageUrls" [src]="'http://localhost:8080' + imageName"
-                    alt="Room Image" class="w-24 h-24 object-cover rounded-lg border border-gray-300" />
+                    alt="Room Image"
+                    class="w-20 h-20 object-cover rounded-md border border-gray-300 transition-transform duration-200 hover:scale-105" />
             </div>
 
             <!-- Room Details -->
-            <div>
-                <h3 class="text-xl font-semibold mb-2">{{ room.category }}</h3>
-                <p class="text-sm text-gray-600">
-                    <span class="font-medium">Room ID:</span> {{ room.roomId }}
-                </p>
-                <p class="text-sm text-gray-600">
-                    <span class="font-medium">Max Guests:</span> {{ room.maxGuests }}
-                </p>
-                <p class="text-sm text-gray-600">
-                    <span class="font-medium">Price:</span> LKR {{ room.price }}
-                </p>
-                <p class="text-sm">
-                    <span class="font-medium">Status:</span>
-                    <span [ngClass]="room.available ? 'text-green-600' : 'text-red-600'">
-                        {{ room.available ? 'Available' : 'Not Available' }}
-                    </span>
-                </p>
-                <p class="text-sm text-gray-700 mt-2">
-                    <span class="font-medium">Description:</span> {{ room.specialDescription }}
-                </p>
+            <div class="flex-grow">
+                <h3 class="text-lg font-semibold mb-3 text-gray-800">{{ room.category }}</h3>
 
+                <div class="space-y-2 mb-4">
+                    <p class="text-sm text-gray-600 flex items-center">
+                        <span class="font-medium text-gray-700 min-w-[90px]">Room ID:</span>
+                        {{ room.roomId }}
+                    </p>
+                    <p class="text-sm text-gray-600 flex items-center">
+                        <span class="font-medium text-gray-700 min-w-[90px]">Max Guests:</span>
+                        {{ room.maxGuests }}
+                    </p>
+                    <p class="text-sm text-gray-600 flex items-center">
+                        <span class="font-medium text-gray-700 min-w-[90px]">Price:</span>
+                        <span class="text-blue-600 font-medium">LKR {{ room.price }}</span>
+                    </p>
+                    <p class="text-sm flex items-center">
+                        <span class="font-medium text-gray-700 min-w-[90px]">Status:</span>
+                        <span [ngClass]="room.available ? 'text-green-600 font-medium' : 'text-red-600'">
+                            {{ room.available ? 'Available' : 'Not Available' }}
+                        </span>
+                    </p>
+                </div>
+
+                <p class="text-sm text-gray-700 mt-3 pt-3 border-t border-gray-100">
+                    <span class="font-medium text-gray-800 block mb-1">Description:</span>
+                    {{ room.specialDescription }}
+                </p>
             </div>
 
             <button [routerLink]="['/booking']" [state]="{room:room}"
-                class="mt-10 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition">
-                Book Now
+                class="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                [class.opacity-60]="!room.available" [disabled]="!room.available">
+                {{ room.available ? 'Book Now' : 'Not Available' }}
             </button>
         </div>
     </div>

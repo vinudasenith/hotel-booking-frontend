@@ -113,7 +113,7 @@ export class AdminRoomsComponent implements OnInit {
 
     const headers = {
       headers: {
-        email: 'admin.fortresshaven@gmail.com'
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
       responseType: 'text' as const
     };
