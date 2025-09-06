@@ -32,6 +32,7 @@ export class AppComponent {
   isFacilityPage: boolean = false;
   isRoomsPage: boolean = false;
   isAccomodationPage: boolean = false;
+  isEditRoomPage: boolean = false;
 
   constructor(private router: Router) {
     this.router.events.pipe(
@@ -44,6 +45,7 @@ export class AppComponent {
       this.isHomePage = path === '/home';
       this.isAdminPage = path === '/admin';
       this.isAdminRoomsPage = path === '/admin/rooms';
+      this.isEditRoomPage = path.startsWith('/admin/rooms/edit/');
       this.isAdminUsersPage = path === '/admin/users';
       this.isAdminBookingsPage = path === '/admin/bookings';
       this.isGalleryPage = path === '/gallery';
@@ -56,6 +58,8 @@ export class AppComponent {
       this.isFacilityPage = path === '/facilities';
       this.isRoomsPage = path === '/rooms';
       this.isAccomodationPage = path === '/accommodation';
+
+
     });
   }
 }
