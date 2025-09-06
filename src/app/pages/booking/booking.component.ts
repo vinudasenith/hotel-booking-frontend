@@ -81,6 +81,7 @@ export class BookingComponent implements OnInit {
       guestEmail: this.guestEmail,
       guestPhone: this.guestPhone,
       notes: this.notes,
+      totalAmount: this.totalAmount,
       status: 'pending'
     };
 

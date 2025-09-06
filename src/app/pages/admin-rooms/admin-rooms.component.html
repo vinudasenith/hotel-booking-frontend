@@ -91,7 +91,7 @@
                     <td class="border border-gray-300 px-4 py-2">{{ room.roomId }}</td>
                     <td class="border border-gray-300 px-4 py-2">{{ room.category }}</td>
                     <td class="border border-gray-300 px-4 py-2">{{ room.maxGuests }}</td>
-                    <td class="border border-gray-300 px-4 py-2">{{ room.price }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ room.price || 0 |number:'1.2-2' }}</td>
                     <td class="border border-gray-300 px-4 py-2">
                         {{ room.available ? 'Yes' : 'No' }}
                     </td>

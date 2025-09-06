@@ -74,7 +74,7 @@ export class AdminRoomsComponent implements OnInit {
       roomId: this.roomId,
       category: this.category,
       maxGuests: this.maxGuests,
-      price: this.price,
+      price: Number(this.price),
       available: this.available,
       specialDescription: this.description,
       imageUrls: imageUrls
@@ -99,7 +99,10 @@ export class AdminRoomsComponent implements OnInit {
 
   getRooms() {
     this.http.get<any[]>(`${environment.apiUrl}/rooms/all`).subscribe({
-      next: (data) => this.rooms = data,
+      next: (data) => this.rooms = data.map(room => ({
+        ...room,
+        price: Number(room.price) != null ? Number(room.price) : 0
+      })),
       error: (err) => {
         console.error('❌ Error fetching rooms:', err);
       }
